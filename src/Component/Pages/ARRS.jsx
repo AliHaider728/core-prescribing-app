@@ -47,14 +47,14 @@ const ARRS = () => {
 
       {/* Hero Section */}
       <section
-        className="animate-section py-20 mt-[100px] bg-cover bg-center bg-no-repeat relative"
+        className="animate-section bg-fixed py-20 mt-[150px] md:mt-[100px] bg-cover bg-center bg-no-repeat relative overflow-hidden"
         style={{
           backgroundImage:
             'url("https://assets.grok.com/users/f8a26a7a-7a73-4b20-8385-6b937d0fd366/generated/b9e3f2e8-2303-48e5-929f-d4657e4dc016/image.jpg")',
           backgroundAttachment: "fixed",
         }}
       >
-        <div className="absolute inset-0 bg-blue-900/70"></div>
+        <div className="absolute inset-0 bg-blue-900/90"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center text-white">
             <h1
