@@ -127,68 +127,68 @@ const Home = () => {
     <>
       <div className="min-h-screen bg-white">
         {/* Hero Section with Slider */}
-        <section
-          id="home"
-          className="bg-cover bg-center bg-no-repeat relative overflow-hidden py-20 mt-[100px] transition-all duration-700 ease-in-out"
+      <section
+  id="home"
+  className="bg-cover bg-center bg-no-repeat relative overflow-hidden py-20 mt-[100px] transition-all duration-700 ease-in-out"
+  style={{
+    backgroundImage: `url(${slides[currentSlide].image})`,
+    backgroundAttachment: "fixed",
+  }}
+>
+  <div className="absolute inset-0 bg-blue-700 bg-opacity-20 z-0"></div>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="flex flex-col items-start justify-center min-h-[60vh] text-left">
+      <div className="space-y-6">
+        <h1
+          className={`text-2xl sm:text-4xl md:text-6xl font-bold text-white leading-tight transition-opacity duration-700 ${
+            fade ? "opacity-100" : "opacity-0"
+          }`}
           style={{
-            backgroundImage: `url(${slides[currentSlide].image})`,
-            backgroundAttachment: "fixed",
+            textShadow: "2px 2px 8px rgba(0, 112, 244, 0.75)",
           }}
         >
-          <div className="absolute inset-0 bg-blue-700 bg-opacity-20 z-0"></div>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="flex flex-col items-start justify-center min-h-[60vh] text-left">
-              <div className="space-y-6">
-                <h1
-                  className={`text-5xl md:text-6xl font-bold text-white leading-tight transition-opacity duration-700 ${
-                    fade ? "opacity-100" : "opacity-0"
-                  }`}
-                  style={{
-                    textShadow: "2px 2px 8px rgba(0, 112, 244, 0.75)",
-                  }}
-                >
-                  {slides[currentSlide].text}
-                </h1>
-                <p
-                  className={`text-2xl text-white transition-opacity duration-700 ${
-                    fade ? "opacity-100" : "opacity-0"
-                  }`}
-                  style={{
-                    textShadow: "1px 1px 6px rgba(0, 112, 244, 0.6)",
-                  }}
-                >
-                  {slides[currentSlide].subtext}
-                </p>
-                <NavLink
-                  to="/about"
-                  className="inline-flex items-center gap-2 hover:bg-transparent hover:border hover:border-blue-600 hover:text-blue-700 bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
-                >
-                  Find Out More
-                  <ArrowRight className="w-5 h-5" />
-                </NavLink>
-              </div>
-            </div>
-            <div className="flex justify-center mt-6">
-              {slides.map((_, index) => (
-                <div
-                  key={index}
-                  className={`w-3 h-3 rounded-full mx-1 cursor-pointer transition-all duration-300 ${
-                    currentSlide === index
-                      ? "bg-blue-600 scale-110"
-                      : "bg-gray-300"
-                  }`}
-                  onClick={() => {
-                    setFade(false);
-                    setTimeout(() => {
-                      setCurrentSlide(index);
-                      setFade(true);
-                    }, 100);
-                  }}
-                ></div>
-              ))}
-            </div>
-          </div>
-        </section>
+          {slides[currentSlide].text}
+        </h1>
+        <p
+          className={`text-base sm:text-xl md:text-2xl text-white transition-opacity duration-700 ${
+            fade ? "opacity-100" : "opacity-0"
+          }`}
+          style={{
+            textShadow: "1px 1px 6px rgba(0, 112, 244, 0.6)",
+          }}
+        >
+          {slides[currentSlide].subtext}
+        </p>
+        <NavLink
+          to="/about"
+          className="inline-flex items-center gap-2 hover:bg-transparent hover:border hover:border-blue-600 hover:text-blue-700 bg-blue-600 text-white px-6 py-3 rounded-lg text-sm sm:text-base md:text-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
+        >
+          Find Out More
+          <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+        </NavLink>
+      </div>
+    </div>
+    <div className="flex justify-center mt-6">
+      {slides.map((_, index) => (
+        <div
+          key={index}
+          className={`w-3 h-3 rounded-full mx-1 cursor-pointer transition-all duration-300 ${
+            currentSlide === index
+              ? "bg-blue-600 scale-110"
+              : "bg-gray-300"
+          }`}
+          onClick={() => {
+            setFade(false);
+            setTimeout(() => {
+              setCurrentSlide(index);
+              setFade(true);
+            }, 100);
+          }}
+        ></div>
+      ))}
+    </div>
+  </div>
+</section>
 
         {/* Featured Support Section */}
         <section
