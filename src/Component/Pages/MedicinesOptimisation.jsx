@@ -39,7 +39,7 @@ const MedicinesOptimisation = () => {
 
       {/* Hero Section */}
       <section
-        className="animate-section py-20 mt-[100px] bg-cover bg-center bg-no-repeat relative"
+        className="animate-section py-20  mt-[150px] md:mt-[100px] bg-cover bg-center bg-no-repeat relative"
         style={{
           backgroundImage:
             'url("https://images.pexels.com/photos/159211/headache-pain-pills-medication-159211.jpeg?auto=compress&cs=tinysrgb&w=1200")',
