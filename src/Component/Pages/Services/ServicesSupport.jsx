@@ -116,14 +116,14 @@ const ServicesSupport = () => {
 
       {/* Hero Section */}
       <section
-        className="animate-section py-20 mt-[100px] bg-cover bg-center bg-no-repeat relative"
+        className="animate-section py-20  mt-[180px] md:mt-[100px] bg-cover bg-center bg-no-repeat relative"
         style={{
           backgroundImage:
             'url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80")',
           backgroundAttachment: "fixed",
         }}
       >
-        <div className="absolute inset-0 bg-blue-900/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-gray-800 to-blue-500"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center text-white">
             <h1

@@ -319,21 +319,9 @@ const Events = () => {
         `}
       </style>
 
-      {/* Breadcrumb */}
-      <div className="bg-white shadow-sm py-4 mt-[100px]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="text-sm">
-            <Link to="/" className="text-blue-600 hover:text-blue-800 transition-colors">
-              Home
-            </Link>
-            <span className="mx-2 text-gray-400">»</span>
-            <span className="text-gray-700 font-medium">Events</span>
-          </nav>
-        </div>
-      </div>
-
+      
       {/* Hero Section */}
-      <section className="animate-section py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-500 relative overflow-hidden">
+      <section className="animate-section py-24 mt-[150px] md:mt-[120px] bg-gradient-to-br from-blue-600 via-blue-700 to-blue-500 relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">

@@ -48,7 +48,7 @@ const ClinicalPharmacist = () => {
 
       {/* Hero Section */}
       <section
-        className="animate-section py-20 mt-[100px] bg-cover bg-center bg-no-repeat relative"
+        className="animate-section py-20 mt-[140px] md:mt-[100px] bg-cover bg-center bg-no-repeat relative"
         style={{
           backgroundImage:
             'url("https://coreprescribingsolutions.co.uk/wp-content/uploads/2022/10/Prescription-illustration2-1024x724.jpg")',
