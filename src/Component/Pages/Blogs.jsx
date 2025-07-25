@@ -1,30 +1,30 @@
-import { useEffect, useState } from "react"
-import { Calendar, User, ArrowRight, BookOpen, Search, Tag, ArrowLeft, Share2, Clock, ChevronLeft, ChevronRight } from "lucide-react"
-import { NavLink } from "react-router-dom"
-import Footer from "../Footer/Footer"
+import { useEffect, useState } from "react";
+import { Calendar, User, ArrowRight, BookOpen, Search, Tag, ArrowLeft, Share2, Clock, ChevronLeft, ChevronRight } from "lucide-react";
+import { NavLink } from "react-router-dom";
+import Footer from "../Footer/Footer";
 
 const Blog = () => {
-  const [currentView, setCurrentView] = useState("listing")  
-  const [selectedPostId, setSelectedPostId] = useState(1)
-  const [selectedCategory, setSelectedCategory] = useState("All Posts")
-  const [searchTerm, setSearchTerm] = useState("")
+  const [currentView, setCurrentView] = useState("listing");
+  const [selectedPostId, setSelectedPostId] = useState(1);
+  const [selectedCategory, setSelectedCategory] = useState("All Posts");
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fadeInSlide")
+            entry.target.classList.add("animate-fadeInSlide");
           }
-        })
+        });
       },
-      { threshold: 0.1 },
-    )
+      { threshold: 0.1 }
+    );
     document.querySelectorAll(".animate-section").forEach((section) => {
-      observer.observe(section)
-    })
-    return () => observer.disconnect()
-  }, [currentView])
+      observer.observe(section);
+    });
+    return () => observer.disconnect();
+  }, [currentView]);
 
   const blogPosts = [
     {
@@ -88,7 +88,7 @@ const Blog = () => {
 
         <p>For healthcare providers considering remote pharmacy services, the evidence strongly supports this innovative approach to pharmaceutical care delivery, offering both immediate benefits and long-term strategic advantages in an increasingly digital healthcare landscape.</p>
       `,
-      tags: ["Remote Pharmacy", "NHS", "Digital Health", "Primary Care", "Telemedicine"]
+      tags: ["Remote Pharmacy", "NHS", "Digital Health", "Primary Care", "Telemedicine"],
     },
     {
       id: 2,
@@ -126,7 +126,7 @@ const Blog = () => {
         <h2>Conclusion</h2>
         <p>The transition from community to primary care pharmacy represents an exciting career opportunity for pharmacists seeking greater clinical involvement and professional growth. With proper preparation and support, this transition can lead to highly rewarding and impactful healthcare careers.</p>
       `,
-      tags: ["Career Development", "Primary Care", "Community Pharmacy", "Professional Growth", "NHS"]
+      tags: ["Career Development", "Primary Care", "Community Pharmacy", "Professional Growth", "NHS"],
     },
     {
       id: 3,
@@ -164,7 +164,7 @@ const Blog = () => {
         <h2>Conclusion</h2>
         <p>The NHS 10-Year Plan presents exciting opportunities for clinical pharmacy services to expand their impact and improve patient outcomes. Proactive planning and strategic preparation will be essential for maximizing these opportunities and ensuring successful implementation.</p>
       `,
-      tags: ["NHS 10-Year Plan", "Healthcare Transformation", "Digital Health", "PCN", "Policy"]
+      tags: ["NHS 10-Year Plan", "Healthcare Transformation", "Digital Health", "PCN", "Policy"],
     },
     {
       id: 4,
@@ -207,7 +207,7 @@ const Blog = () => {
         <h2>Conclusion</h2>
         <p>Addressing burnout in primary care requires sustained commitment from healthcare organizations, leaders, and individual practitioners. By implementing comprehensive strategies that address both systemic issues and individual needs, we can create healthier work environments that benefit both healthcare professionals and the patients they serve.</p>
       `,
-      tags: ["Burnout Prevention", "Workforce Wellbeing", "Healthcare Leadership", "Team Building", "Mental Health"]
+      tags: ["Burnout Prevention", "Workforce Wellbeing", "Healthcare Leadership", "Team Building", "Mental Health"],
     },
     {
       id: 5,
@@ -250,7 +250,7 @@ const Blog = () => {
         <h2>Conclusion</h2>
         <p>Investment in comprehensive training and development programs is essential for building high-performing PCN pharmacy teams. By combining innovative learning approaches with traditional methods, PCNs can ensure their pharmacy staff are well-equipped to deliver excellent patient care in an evolving healthcare landscape.</p>
       `,
-      tags: ["Training Programs", "Professional Development", "PCN", "Competency Framework", "E-Learning"]
+      tags: ["Training Programs", "Professional Development", "PCN", "Competency Framework", "E-Learning"],
     },
     {
       id: 6,
@@ -293,13 +293,13 @@ const Blog = () => {
         <h2>Conclusion</h2>
         <p>Outsourcing clinical pharmacist services can provide significant benefits for healthcare organizations when implemented thoughtfully. By carefully selecting partners, establishing clear agreements, and maintaining strong governance frameworks, organizations can access high-quality pharmacy services while maintaining flexibility and cost control.</p>
       `,
-      tags: ["Outsourcing", "Clinical Pharmacy", "Service Models", "Cost Management", "Healthcare Operations"]
-    }
-  ]
+      tags: ["Outsourcing", "Clinical Pharmacy", "Service Models", "Cost Management", "Healthcare Operations"],
+    },
+  ];
 
   const categories = [
     "All Posts",
-    "Remote Services", 
+    "Remote Services",
     "Career Development",
     "NHS Updates",
     "Workforce Wellbeing",
@@ -309,26 +309,27 @@ const Blog = () => {
     "Service Comparison",
     "Clinical Guidelines",
     "Digital Health",
-    "Healthcare Networks"
-  ]
+    "Healthcare Networks",
+  ];
 
-  const filteredPosts = blogPosts.filter(post => {
-    const matchesCategory = selectedCategory === "All Posts" || post.category === selectedCategory
-    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
-    return matchesCategory && matchesSearch
-  })
+  const filteredPosts = blogPosts.filter((post) => {
+    const matchesCategory = selectedCategory === "All Posts" || post.category === selectedCategory;
+    const matchesSearch =
+      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   const showBlogDetail = (postId) => {
-    setSelectedPostId(postId)
-    setCurrentView("detail")
-    window.scrollTo(0, 0)
-  }
+    setSelectedPostId(postId);
+    setCurrentView("detail");
+    window.scrollTo(0, 0);
+  };
 
   const showBlogListing = () => {
-    setCurrentView("listing")
-    window.scrollTo(0, 0)
-  }
+    setCurrentView("listing");
+    window.scrollTo(0, 0);
+  };
 
   // Blog Listing Component
   const BlogListing = () => (
@@ -401,8 +402,8 @@ const Blog = () => {
                   key={index}
                   onClick={() => setSelectedCategory(category)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                    selectedCategory === category 
-                      ? "bg-blue-600 text-white" 
+                    selectedCategory === category
+                      ? "bg-blue-600 text-white"
                       : "bg-gray-100 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
                   }`}
                 >
@@ -420,9 +421,11 @@ const Blog = () => {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold gradient-text mb-4">Latest Post</h2>
           </div>
-          
-          <div className="blog-card rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
-               onClick={() => showBlogDetail(filteredPosts[0]?.id)}>
+
+          <div
+            className="blog-card rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
+            onClick={() => showBlogDetail(filteredPosts[0]?.id)}
+          >
             <div className="lg:flex">
               <div className="lg:w-1/2">
                 <img
@@ -441,21 +444,22 @@ const Blog = () => {
                     {filteredPosts[0]?.date}
                   </div>
                 </div>
-                
+
                 <h3 className="text-3xl font-bold text-gray-900 mb-4 hover:text-blue-600 transition-colors">
                   {filteredPosts[0]?.title}
                 </h3>
-                
+
                 <div className="flex items-center gap-2 mb-6 text-gray-600">
-                  <img src="https://coreprescribingsolutions.co.uk/wp-content/uploads/2022/01/adeem-150x150.png" alt="" 
-                  className="w-10 h-10"/>
+                  <img
+                    src="https://coreprescribingsolutions.co.uk/wp-content/uploads/2022/01/adeem-150x150.png"
+                    alt=""
+                    className="w-10 h-10"
+                  />
                   <span className="text-sm">{filteredPosts[0]?.author}</span>
                 </div>
-                
-                <p className="text-gray-600 leading-relaxed mb-8">
-                  {filteredPosts[0]?.excerpt}
-                </p>
-                
+
+                <p className="text-gray-600 leading-relaxed mb-8">{filteredPosts[0]?.excerpt}</p>
+
                 <button className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-gray-800 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-gray-900 transition-all duration-300 group">
                   Read More
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -478,8 +482,8 @@ const Blog = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.slice(1).map((post, index) => (
-              <article 
-                key={post.id} 
+              <article
+                key={post.id}
                 className="blog-card rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden group cursor-pointer"
                 onClick={() => showBlogDetail(post.id)}
               >
@@ -494,7 +498,7 @@ const Blog = () => {
                     {post.category}
                   </div>
                 </div>
-                
+
                 <div className="p-6">
                   <div className="flex items-center gap-4 mb-4 text-gray-500 text-sm">
                     <div className="flex items-center">
@@ -506,15 +510,13 @@ const Blog = () => {
                       {post.author}
                     </div>
                   </div>
-                  
+
                   <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                     {post.title}
                   </h3>
-                  
-                  <p className="text-gray-600 leading-relaxed mb-6 line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                  
+
+                  <p className="text-gray-600 leading-relaxed mb-6 line-clamp-3">{post.excerpt}</p>
+
                   <div className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold group-hover:gap-3 transition-all duration-300">
                     Read More
                     <ArrowRight className="w-4 h-4" />
@@ -535,7 +537,7 @@ const Blog = () => {
           <p className="text-xl text-blue-100 mb-12 leading-relaxed">
             Subscribe to our newsletter to receive the latest insights on primary care pharmacy services and NHS updates.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
             <input
               type="email"
@@ -547,7 +549,7 @@ const Blog = () => {
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
-          
+
           <p className="text-blue-200 text-sm mt-4">
             Join hundreds of healthcare professionals already subscribed
           </p>
@@ -578,35 +580,38 @@ const Blog = () => {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <Footer />
     </div>
-  )
+  );
 
   // Blog Detail Component
   const BlogDetail = () => {
-    const [currentPost, setCurrentPost] = useState(null)
-    const [relatedPosts, setRelatedPosts] = useState([])
-    const [loading, setLoading] = useState(true)
+    const [currentPost, setCurrentPost] = useState(null);
+    const [relatedPosts, setRelatedPosts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    const post = blogPosts.find(p => p.id === selectedPostId) || blogPosts[0]
+    const post = blogPosts.find((p) => p.id === selectedPostId) || blogPosts[0];
 
     const getRelatedPosts = () => {
       return blogPosts
-        .filter(p => p.id !== selectedPostId && p.category === post.category)
+        .filter((p) => p.id !== selectedPostId && p.category === post.category)
         .slice(0, 3)
         .concat(
           blogPosts
-            .filter(p => p.id !== selectedPostId && p.category !== post.category)
-            .slice(0, 3 - blogPosts.filter(p => p.id !== selectedPostId && p.category === post.category).length)
-        )
-    }
+            .filter((p) => p.id !== selectedPostId && p.category !== post.category)
+            .slice(0, 3 - blogPosts.filter((p) => p.id !== selectedPostId && p.category === post.category).length)
+        );
+    };
 
     useEffect(() => {
       setTimeout(() => {
-        setCurrentPost(post)
-        setRelatedPosts(getRelatedPosts())
-        setLoading(false)
-      }, 1000)
-    }, [selectedPostId])
+        setCurrentPost(post);
+        setRelatedPosts(getRelatedPosts());
+        setLoading(false);
+      }, 1000);
+    }, [selectedPostId]);
 
     if (loading) {
       return (
@@ -616,11 +621,10 @@ const Blog = () => {
             <p className="text-xl text-gray-600">Loading article...</p>
           </div>
         </div>
-      )
+      );
     }
 
     return (
-      <>
       <div className="min-h-screen bg-gray-50">
         <style>
           {`
@@ -684,7 +688,7 @@ const Blog = () => {
         {/* Back Navigation */}
         <div className="bg-white border-b border-gray-200 mt-[100px]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <button 
+            <button
               onClick={showBlogListing}
               className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors duration-300"
             >
@@ -721,9 +725,7 @@ const Blog = () => {
                     </div>
                   </div>
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                  {currentPost?.title}
-                </h1>
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">{currentPost?.title}</h1>
                 <div className="flex items-center gap-4">
                   <div className="flex items-center gap-2">
                     <User className="w-5 h-5" />
@@ -741,10 +743,7 @@ const Blog = () => {
           {/* Article Content */}
           <div className="animate-section py-16 bg-white">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div 
-                className="content prose prose-lg max-w-none"
-                dangerouslySetInnerHTML={{ __html: currentPost?.content }}
-              />
+              <div className="content prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: currentPost?.content }} />
 
               {/* Tags */}
               <div className="mt-16 pt-8 border-t border-gray-200">
@@ -770,9 +769,7 @@ const Blog = () => {
                   <div className="flex-1">
                     <h4 className="text-xl font-bold text-gray-900 mb-2">{currentPost?.author}</h4>
                     <p className="text-gray-600 leading-relaxed">
-                      Adeem Azhar is a clinical pharmacy expert with extensive experience in primary care services. 
-                      He specializes in remote pharmacy solutions, PCN support, and healthcare digital transformation. 
-                      With a passion for improving patient outcomes through innovative pharmaceutical care delivery.
+                      Adeem Azhar is a clinical pharmacy expert with extensive experience in primary care services. He specializes in remote pharmacy solutions, PCN support, and healthcare digital transformation. With a passion for improving patient outcomes through innovative pharmaceutical care delivery.
                     </p>
                   </div>
                 </div>
@@ -786,15 +783,13 @@ const Blog = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold gradient-text mb-4">Related Articles</h2>
-              <p className="text-xl text-gray-600">
-                Continue exploring our insights on primary care pharmacy services
-              </p>
+              <p className="text-xl text-gray-600">Continue exploring our insights on primary care pharmacy services</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {relatedPosts.map((relatedPost, index) => (
-                <article 
-                  key={relatedPost.id} 
+                <article
+                  key={relatedPost.id}
                   className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden group cursor-pointer"
                   onClick={() => showBlogDetail(relatedPost.id)}
                 >
@@ -808,7 +803,7 @@ const Blog = () => {
                       {relatedPost.category}
                     </div>
                   </div>
-                  
+
                   <div className="p-6">
                     <div className="flex items-center gap-4 mb-4 text-gray-500 text-sm">
                       <div className="flex items-center">
@@ -820,15 +815,13 @@ const Blog = () => {
                         {relatedPost.author}
                       </div>
                     </div>
-                    
+
                     <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                       {relatedPost.title}
                     </h3>
-                    
-                    <p className="text-gray-600 leading-relaxed mb-6 line-clamp-3">
-                      {relatedPost.excerpt?.substring(0, 150)}...
-                    </p>
-                    
+
+                    <p className="text-gray-600 leading-relaxed mb-6 line-clamp-3">{relatedPost.excerpt?.substring(0, 150)}...</p>
+
                     <div className="flex items-center justify-between">
                       <span className="text-blue-600 hover:text-blue-800 font-semibold group-hover:gap-3 transition-all duration-300 flex items-center gap-2">
                         Read More
@@ -846,33 +839,33 @@ const Blog = () => {
         <section className="py-12 bg-white border-t border-gray-200">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center">
-              <button 
+              <button
                 className="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors group"
                 onClick={() => {
-                  const prevPost = blogPosts.find(p => p.id === (currentPost?.id - 1)) || blogPosts[blogPosts.length - 1]
-                  showBlogDetail(prevPost.id)
+                  const prevPost = blogPosts.find((p) => p.id === (currentPost?.id - 1)) || blogPosts[blogPosts.length - 1];
+                  showBlogDetail(prevPost.id);
                 }}
               >
                 <ChevronLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                 <div className="text-left">
                   <div className="text-sm text-gray-500">Previous Article</div>
                   <div className="font-semibold">
-                    {(blogPosts.find(p => p.id === (currentPost?.id - 1)) || blogPosts[blogPosts.length - 1])?.title?.substring(0, 40)}...
+                    {(blogPosts.find((p) => p.id === (currentPost?.id - 1)) || blogPosts[blogPosts.length - 1])?.title?.substring(0, 40)}...
                   </div>
                 </div>
               </button>
-              
-              <button 
+
+              <button
                 className="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors group text-right"
                 onClick={() => {
-                  const nextPost = blogPosts.find(p => p.id === (currentPost?.id + 1)) || blogPosts[0]
-                  showBlogDetail(nextPost.id)
+                  const nextPost = blogPosts.find((p) => p.id === (currentPost?.id + 1)) || blogPosts[0];
+                  showBlogDetail(nextPost.id);
                 }}
               >
                 <div>
                   <div className="text-sm text-gray-500">Next Article</div>
                   <div className="font-semibold">
-                    {(blogPosts.find(p => p.id === (currentPost?.id + 1)) || blogPosts[0])?.title?.substring(0, 40)}...
+                    {(blogPosts.find((p) => p.id === (currentPost?.id + 1)) || blogPosts[0])?.title?.substring(0, 40)}...
                   </div>
                 </div>
                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -881,43 +874,38 @@ const Blog = () => {
           </div>
         </section>
 
-        
-
-           {/* Contact CTA */}
-      <section className="animate-section py-20 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-500  text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Calendar className="w-16 h-16 mx-auto mb-8 text-blue-200" />
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Meet Us at These Events</h2>
-          <p className="text-xl text-blue-100 mb-12 max-w-4xl mx-auto leading-relaxed">
-            Book a meeting with our team at any of these upcoming events to discuss how we can support your healthcare practice with our innovative prescribing solutions.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <NavLink
-              to="/contact"
-              className="bg-white text-blue-600 px-8 py-4 rounded-xl text-lg font-bold hover:bg-gray-100 transition-all duration-300 inline-flex items-center gap-3 shadow-2xl transform hover:scale-105"
-            >
-              Contact Us Today
-              <ArrowRight className="w-6 h-6" />
-            </NavLink>
-            <div className="text-blue-100">
-              <div className="text-lg font-semibold">Call us directly</div>
-              <div className="text-2xl font-bold">01274 442076</div>
+        {/* Contact CTA */}
+        <section className="animate-section py-20 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-500 text-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-black/10"></div>
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <Calendar className="w-16 h-16 mx-auto mb-8 text-blue-200" />
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Meet Us at These Events</h2>
+            <p className="text-xl text-blue-100 mb-12 max-w-4xl mx-auto leading-relaxed">
+              Book a meeting with our team at any of these upcoming events to discuss how we can support your healthcare practice with our innovative prescribing solutions.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <NavLink
+                to="/contact"
+                className="bg-white text-blue-600 px-8 py-4 rounded-xl text-lg font-bold hover:bg-gray-100 transition-all duration-300 inline-flex items-center gap-3 shadow-2xl transform hover:scale-105"
+              >
+                Contact Us Today
+                <ArrowRight className="w-6 h-6" />
+              </NavLink>
+              <div className="text-blue-100">
+                <div className="text-lg font-semibold">Call us directly</div>
+                <div className="text-2xl font-bold">01274 442076</div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* Footer */}
+        <Footer />
       </div>
-      <Footer />
-      </>
-    )
-  }
+    );
+  };
 
-  return (
-    <div>
-      {currentView === "listing" ? <BlogListing /> : <BlogDetail />}
-    </div>
-  )
-}
+  return <div>{currentView === "listing" ? <BlogListing /> : <BlogDetail />}</div>;
+};
 
-export default Blog
+export default Blog;
