@@ -408,7 +408,7 @@ const Contact = () => {
             </div>
           </div>
         </section>
-
+      
         {/* Partnership Section */}
         <section className="fade-in opacity-0 translate-y-8 transition-all duration-1000">
           <div className="bg-gradient-to-r from-blue-900 to-gray-800 rounded-3xl p-8 md:p-12 text-center text-white">
