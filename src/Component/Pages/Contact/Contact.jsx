@@ -81,7 +81,7 @@ const Contact = () => {
     <>
     <div className="min-h-screen bg-gradient-to-br from-gray-100 via-white to-gray-200">
       {/* Hero Section */}
-      <div className="fade-in opacity-0 relative mt-[90px] translate-y-8 transition-all duration-1000 bg-gradient-to-r from-blue-900 via-blue-800 to-gray-800 text-white" >
+      <div className="fade-in opacity-0 relative  mt-[130px] md:mt-[90px] translate-y-8 transition-all duration-1000 bg-gradient-to-r from-blue-900 via-blue-800 to-gray-800 text-white" >
         <div className="container mx-auto px-4 py-20">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">
