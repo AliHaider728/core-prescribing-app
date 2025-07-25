@@ -110,7 +110,7 @@ const Training = () => {
               </div>
               <div className="order-1 md:order-2">
                 <img 
-                  src="https://assets.grok.com/users/f8a26a7a-7a73-4b20-8385-6b937d0fd366/generated/c21bb079-9664-4a2c-950d-789b0c364425/image.jpg" 
+                  src="https://images.pexels.com/photos/5452223/pexels-photo-5452223.jpeg" 
                   alt="Training materials and books"
                   className="rounded-lg shadow-md w-full h-64  md:h-96 object-cover"
                 />
