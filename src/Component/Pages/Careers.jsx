@@ -87,7 +87,7 @@ const Careers = () => {
    <>
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="fade-in opacity-0 mt-[120px] transition-opacity duration-700 bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+      <div className="fade-in opacity-0 mt-[150px] md:mt-[120px] transition-opacity duration-700 bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">Careers at Core Prescribing Solutions</h1>
           <p className="text-xl md:text-2xl text-blue-100">Join our growing team of passionate healthcare professionals</p>
