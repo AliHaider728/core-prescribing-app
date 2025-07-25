@@ -565,8 +565,7 @@ const Blog = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <NavLink
-              to="https://coreprescribingsolutions.co.uk/contact/"
-              target="_blank"
+              to="/contact"
               rel="noopener noreferrer"
               className="bg-gradient-to-r from-blue-600 to-gray-800 text-white px-8 py-4 rounded-xl text-lg font-bold hover:from-blue-700 hover:to-gray-900 transition-all duration-300 inline-flex items-center gap-3 shadow-lg transform hover:scale-105"
             >
