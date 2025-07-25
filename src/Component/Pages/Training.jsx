@@ -130,7 +130,7 @@ const Training = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <img 
-                  src="https://assets.grok.com/users/f8a26a7a-7a73-4b20-8385-6b937d0fd366/generated/e644b772-9408-4d0c-af4b-c3450da1dcc1/image.jpg" 
+                  src="https://images.pexels.com/photos/356040/pexels-photo-356040.jpeg" 
                   alt="Clinical training session"
                   className="rounded-lg shadow-md w-full h-64 md:h-[400px] object-cover"
                 />
