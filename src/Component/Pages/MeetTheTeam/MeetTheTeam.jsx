@@ -182,7 +182,7 @@ const MeetTheTeam = () => {
 
       {/* Hero Section */}
       <section
-        className="bg-fixed animate-section py-20 mt-[130px] bg-cover bg-center bg-no-repeat relative "
+        className="bg-fixed animate-section py-20 mt-[150px] md:mt-[130px] bg-cover bg-center bg-no-repeat relative "
         style={{
           backgroundImage:
             'url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80")',
