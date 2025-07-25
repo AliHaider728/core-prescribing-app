@@ -908,7 +908,7 @@ const Blog = () => {
         </div>
       </section>
       </div>
-      <Footer/>
+      <Footer />
       </>
     )
   }
