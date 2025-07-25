@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { SiGlassdoor, SiTiktok } from "react-icons/si";
 import { ChevronDown, Menu, X, Mail, Phone, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 import "./Header.css"
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -15,6 +16,7 @@ const Header = () => {
   const topBarRef = useRef(null);
   const dropdownRef = useRef(null);
   const mobileMenuRef = useRef(null);
+  const dropdownTimeoutRef = useRef(null);
 
   const fadeIn = (element, delay = 0, duration = 0.6) => {
     if (!element) return;
@@ -38,6 +40,20 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Dropdown handlers with timeout for smooth interaction
+  const handleDropdownEnter = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+    }
+    setIsServicesOpen(true);
+  };
+
+  const handleDropdownLeave = () => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setIsServicesOpen(false);
+    }, 300); // 300ms delay before hiding
+  };
 
   const servicesSubMenu = [
     { name: "Services & Support Overview", path: "/services" },
@@ -171,15 +187,17 @@ const Header = () => {
                 </Link>
               ))}
 
-              {/* Services Dropdown */}
-              <div className="relative">
+              {/* Services Dropdown - Fixed */}
+              <div 
+                className="relative"
+                onMouseEnter={handleDropdownEnter}
+                onMouseLeave={handleDropdownLeave}
+              >
                 <button
                   ref={(el) => (navItemsRef.current[3] = el)}
                   className={`flex items-center text-sm xl:text-base font-medium transition-all duration-300 hover:scale-110 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${
                     location.pathname.startsWith("/services") ? "text-blue-600" : "text-blue-900 hover:text-blue-600"
                   }`}
-                  onMouseEnter={() => setIsServicesOpen(true)}
-                  onMouseLeave={() => setIsServicesOpen(false)}
                 >
                   Services & Support
                   <ChevronDown
@@ -187,22 +205,25 @@ const Header = () => {
                   />
                 </button>
 
-                {isServicesOpen && (
-                  <div
-                    ref={dropdownRef}
-                    className="absolute top-full left-0 w-80 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50 backdrop-blur-sm transform transition-all duration-300 scale-95 hover:scale-100"
-                  >
-                    {servicesSubMenu.map((item, index) => (
-                      <Link
-                        key={index}
-                        to={item.path}
-                        className="block px-4 py-2 text-xs xl:text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 hover:pl-6"
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
+                {/* Dropdown Menu */}
+                <div
+                  className={`absolute top-full left-0 w-80 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50 backdrop-blur-sm transition-all duration-300 ${
+                    isServicesOpen 
+                      ? "opacity-100 translate-y-0 visible" 
+                      : "opacity-0 translate-y-2 invisible"
+                  }`}
+                >
+                  {servicesSubMenu.map((item, index) => (
+                    <Link
+                      key={index}
+                      to={item.path}
+                      className="block px-4 py-2 text-xs xl:text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200  "
+                      onClick={() => setIsServicesOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
 
               {[
