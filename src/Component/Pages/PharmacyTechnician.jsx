@@ -38,7 +38,7 @@ const PharmacyTechnician = () => {
 
       {/* Hero Section */}
       <section
-        className="animate-section py-20 mt-[100px] bg-cover bg-center bg-no-repeat relative"
+        className="animate-section py-20 mt-[150px] md:mt-[100px] bg-cover bg-center bg-no-repeat relative"
         style={{
           backgroundImage:
             'url("https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80")',
