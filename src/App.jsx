@@ -25,8 +25,7 @@ import TermsConditions from "./Component/Pages/TermsConditions.jsx"
 import PrivacyPolicy from "./Component/Pages/PrivacyPolicy.jsx"
 import Events from "./Component/Pages/Events.jsx"
 import Awards from "./Component/Pages/Awards.jsx"
-import Blog from "./Component/Pages/blog.jsx"
-
+import Blog from "./Component/Pages/Blogs.jsx"
 function App() {
   return (
     <Router>
