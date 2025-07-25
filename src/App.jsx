@@ -23,8 +23,9 @@ import PressMedia from "./Component/Pages/PressMedia.jsx"
 import Testimonials from "./Component/Pages/Testimonials.jsx"
 import TermsConditions from "./Component/Pages/TermsConditions.jsx"
 import PrivacyPolicy from "./Component/Pages/PrivacyPolicy.jsx"
-// import Blog from "./Component/Pages/Blog.jsx"
-
+import Events from "./Component/Pages/Events.jsx"
+import Awards from "./Component/Pages/Awards.jsx"
+import Blog from "./Component/Pages/blog.jsx"
 
 function App() {
   return (
@@ -55,7 +56,9 @@ function App() {
           <Route path="/Testimonials" element={<Testimonials/>} />
           <Route path="/Term" element={<TermsConditions/>} />
           <Route path="/privacy" element={<PrivacyPolicy/>} />
-          {/* <Route path="/event" element={<Events/>} /> */}
+          <Route path="/event" element={<Events/>} />
+          <Route path="/award" element={<Awards/>} />
+          <Route path="/blog" element={<Blog/>} />
           
           
         </Routes>

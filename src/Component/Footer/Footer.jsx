@@ -204,14 +204,14 @@ const Footer = () => {
             </p>
             <div className="flex flex-wrap justify-center lg:justify-end gap-4 lg:gap-6">
               {[
-                { to: "", label: "Awards" },
-                { to: "/", label: "Blog" },
-                { to: "/", label: "Events" },
+                { to: "/award", label: "Awards" },
+                { to: "/blog", label: "Blog" },
+                { to: "/event", label: "Events" },
                 { to: "/Testimonials", label: "Testimonials" },
                 { to: "/press", label: "Press & Media" },
                 { to: "/Term", label: "TermsCondition" },
                 { to: "/privacy", label: "Privacy" },
-                { to: "", label: "Cookies" },
+                
               ].map(({ to, label }, index) => (
                 to ? (
                   <Link
